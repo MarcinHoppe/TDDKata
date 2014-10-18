@@ -26,7 +26,7 @@ namespace MarcinHoppe.StringCalculator
             return ints.Where(n => n <= 1000).Sum();
         }
 
-        public static string RemoveDelimiter(string numbers)
+        private static string RemoveDelimiter(string numbers)
         {
             return delimiterRegex.Replace(numbers, "").Trim();
         }

@@ -45,12 +45,6 @@ namespace MarcinHoppe.StringCalculator.Tests
         }
 
         [Fact]
-        public void RemoveDelimiter()
-        {
-            Assert.Equal("1,2,3", StringCalculator.RemoveDelimiter("//[,]\n1,2,3"));
-        }
-
-        [Fact]
         public void ExplicitDelimiter()
         {
             Assert.Equal(6, StringCalculator.Add("//[,]\n1,2,3"));

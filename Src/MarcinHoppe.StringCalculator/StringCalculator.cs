@@ -36,10 +36,9 @@ namespace MarcinHoppe.StringCalculator
             var match = delimiterRegex.Match(numbers);
             if (match.Success)
             {
-                var captures = match.Groups["delimiter"].Captures;
-                for (int i = 0; i < captures.Count; ++i)
+                foreach (var capture in match.Groups["delimiter"].Captures.Cast<Capture>())
                 {
-                    yield return captures[i].Value;
+                    yield return capture.Value;
                 }
             }
             else

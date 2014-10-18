@@ -76,5 +76,25 @@ namespace MarcinHoppe.StringCalculator.Tests
             Assert.Contains("-1", exception.Message);
             Assert.Contains("-3", exception.Message);
         }
+
+        [Fact]
+        public void IgnoreNumbersAboveOneThousand()
+        {
+            Assert.Equal(1002, StringCalculator.Add("1000,2"));
+            Assert.Equal(2, StringCalculator.Add("1001,2"));
+            Assert.Equal(2, StringCalculator.Add("1003,2"));
+        }
+
+        [Fact]
+        public void ArbitraryLengthDelimiter()
+        {
+            Assert.Equal(6, StringCalculator.Add("//[***]\n1***2***3"));
+        }
+
+        [Fact]
+        public void MultipleDelimiters()
+        {
+            Assert.Equal(6, StringCalculator.Add("//[***][%]\n1%2***3"));
+        }
     }
 }
